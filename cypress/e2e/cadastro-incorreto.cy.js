@@ -2,7 +2,7 @@
 describe('Pagina Cadastro, cenário Incorreto AluraPic', () => {
 
     beforeEach(()=> {
-        cy.visit('https://3076-cypress-alurapic-front.vercel.app/#/home')
+        cy.visit('/')
     });
     
     it("Deve verificar as mensagem de dados obrigatorios no cadastro ", () => {

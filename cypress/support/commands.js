@@ -8,6 +8,6 @@ Cypress.Commands.add('getByData', (seletor) => {
 // Comando personalizado para faciliata login no site
 Cypress.Commands.add('login', (email, senha) => {
   cy.getByData('loginUserName').type(`${email}`);
-  cy.getByData('loginPassword').type(`${senha}`);
+  cy.getByData('loginPassword').type(`${senha}`, {log: false });
   cy.getByData('loginBtn').click();
 });

@@ -3,7 +3,7 @@ describe('Funcionalidades Foto, cenário de sucesso', () =>{
    beforeEach(() => {
     cy.visit('/');
     cy.login('wesleyj','wesley123');
-   })
+   });
    
    
     it('Deve cadastrar com sucesso uma foto', () => {
@@ -12,8 +12,10 @@ describe('Funcionalidades Foto, cenário de sucesso', () =>{
         cy.get('[placeholder="photo description"]').type('seliga');
         //cy.get('[type="checkbox"]').click();
         cy.get('[type="submit"]').click();
+        //validando se houve a msg de upload completo
         cy.contains('Upload complete').should('be.visible');
         cy.get('.fa-home').click();
+        //Validando se existe uma imagem 
         cy.get('.img-thumbnail').should('have.length', 1);
         //cy.wait(1000); 
     })

@@ -3,7 +3,7 @@
 describe('Pagina Cadastro, cenário Correto', () => {
 
 beforeEach(()=> {
-    cy.visit('https://3076-cypress-alurapic-front.vercel.app/#/home')
+    cy.visit('/');
 });
 
  const usuario = require('../fixtures/usuarios.json');

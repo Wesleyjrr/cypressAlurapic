@@ -1,8 +1,7 @@
 describe('Pagina Login, cenário Incorreto', () => {
 
     beforeEach(()=> {
-        cy.visit('https://3076-cypress-alurapic-front.vercel.app/#/home');
-
+        cy.visit('/');
         // Duble de Teste, forçando msg de erro
         cy.intercept('POST','https://alurapic-api.onrender.com/user/login', {statusCode:400} ).as('stubPost');
     });
@@ -22,7 +21,8 @@ describe('Pagina Login, cenário Incorreto', () => {
     it('Deve Falhar mesmo que os campos sejam preenchidos corretamente', () => {
         cy.login('wesleyj','wesley1234');
         // cy.wait(1000);
-        // cy.wait('@stubPost');
+        cy.wait('@stubPost');
+        
         cy.on('window:alert', (str) => {
             expect(str).to.equal('Invalid user name or password')    }); 
         

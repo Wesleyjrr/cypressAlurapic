@@ -30,8 +30,6 @@ describe('Testes de ponta a ponta site de fotos alura', () => {
     cy.contains('button','Register').click();
     cy.contains('ap-vmessage','Mininum length is 8').should('be.visible');
 
-  
-
   });
 
   it('Deve realizar login com usuario valido', () => {
