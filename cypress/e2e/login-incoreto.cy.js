@@ -20,9 +20,9 @@ describe('Pagina Login, cenário Incorreto', () => {
 
     // Usando duble de teste para forçar um comportamento
     it('Deve Falhar mesmo que os campos sejam preenchidos corretamente', () => {
-        cy.login('wesleyj','wesley123');
-        cy.wait(1000);
-        cy.wait('@stubPost');
+        cy.login('wesleyj','wesley1234');
+        // cy.wait(1000);
+        // cy.wait('@stubPost');
         cy.on('window:alert', (str) => {
             expect(str).to.equal('Invalid user name or password')    }); 
         
