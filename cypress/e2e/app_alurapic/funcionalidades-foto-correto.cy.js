@@ -1,8 +1,9 @@
+/// <reference types="cypress"/>
 describe('Funcionalidades Foto, cenário de sucesso', () =>{
 
    beforeEach(() => {
     cy.visit('/');
-    cy.login('wesleyj','wesley123');
+    cy.login(Cypress.env('userEmail'), Cypress.env('password'), {log: false });
    });
    
    

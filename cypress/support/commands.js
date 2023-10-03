@@ -1,4 +1,4 @@
-//comando personalizado para facilitar a escrita do teste
+
 //comando personalizado para facilitar a escrita do teste
 Cypress.Commands.add('getByData', (seletor) => {
   return cy.get(`[data-test=${seletor}]`)

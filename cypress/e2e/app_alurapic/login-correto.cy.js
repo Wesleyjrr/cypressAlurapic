@@ -1,13 +1,15 @@
-describe('Pagina Login, cenário Correto', () => {
+/// <reference types="cypress"/>
 
+describe('Pagina Login, cenário Correto', () => {
+    //Hook realizado antes de cada teste, a / representa o endereço do base URL
     beforeEach(()=> {
         cy.visit('/');    
     });
 
     it('Deve realizar login e logout com sucesso', () => {
-        //cy.getByData('loginUserName').type('wesleyj');
-        //cy.getByData('loginPassword').type('wesley123',{log: false });
-        cy.login('wesleyj','wesley123', {log: false });
+        //Dentro do arquivo Cypress.env.json possui um objeto com email e senha para proteger estes dados de teste
+        cy.login(Cypress.env('userEmail'), Cypress.env('password'), {log: false });
+        //Comando personalizado getByData
         cy.getByData('loginBtn').click(); 
         //Validando se é visivel o nome do usuario e a opção de logout
         cy.contains('a', 'wesleyj').should('be.visible');
@@ -16,9 +18,6 @@ describe('Pagina Login, cenário Correto', () => {
         cy.contains('a', '(Logout)').click();
         //Validando se após o logout realmente voltamos a pagina inicial
         cy.contains('Please, login!').should('be.visible');
-
     });       
-    
-  
 
-    });
+});

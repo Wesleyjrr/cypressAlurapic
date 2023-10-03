@@ -1,3 +1,4 @@
+/// <reference types="cypress"/>
 describe('Pagina Login, cenário Incorreto', () => {
 
     beforeEach(()=> {
@@ -19,7 +20,7 @@ describe('Pagina Login, cenário Incorreto', () => {
 
     // Usando duble de teste para forçar um comportamento
     it('Deve Falhar mesmo que os campos sejam preenchidos corretamente', () => {
-        cy.login('wesleyj','wesley1234');
+        cy.login(Cypress.env('userEmail'), Cypress.env('password'), {log: false });
         // cy.wait(1000);
         cy.wait('@stubPost');
         

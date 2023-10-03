@@ -1,3 +1,4 @@
+/// <reference types="cypress"/>
 
 describe('Pagina Cadastro, cenário Incorreto AluraPic', () => {
 
@@ -6,25 +7,16 @@ describe('Pagina Cadastro, cenário Incorreto AluraPic', () => {
     });
     
     it("Deve verificar as mensagem de dados obrigatorios no cadastro ", () => {
-
         cy.getByData('register').click();
         cy.getByData('btnRegister').click();
         cy.contains('Email is required!').should('be.visible');
         cy.getByData('btnRegister').click();
         cy.contains('Full name is required!').should('exist');
         cy.contains('User name is required!').should('exist');
-        cy.contains('Password is required!').should('exist');
-        // cy.contains('[data-test="register"]', 'Register now').click();
-        // cy.contains('[data-test="btnRegister"]','Register').click();
-        // cy.contains('ap-vmessage','Email is required!').should('exist').and('have.text','Email is required!');
-        // cy.contains('[data-test="btnRegister"]','Register').click();
-        // cy.contains('Full name is required!').should('exist');
-        // cy.contains('User name is required!').should('exist');
-        // cy.contains('Password is required!').should('exist');
-        
+        cy.contains('Password is required!').should('exist');       
     });
 
-    it.skip("Deve verificar para cada campo msg do preenchimento incorreto ", () => {
+    it("Deve verificar para cada campo msg do preenchimento incorreto ", () => {
         cy.contains('[data-test="register"]', 'Register now').click();
         cy.get('[data-test="email"]').type('111');
         cy.contains('[data-test="btnRegister"]', 'Register').click();

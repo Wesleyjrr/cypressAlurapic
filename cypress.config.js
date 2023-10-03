@@ -5,3 +5,5 @@ module.exports = defineConfig({
     baseUrl:'https://3076-cypress-alurapic-front.vercel.app/#/home'
   },
 });
+
+

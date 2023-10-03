@@ -1,7 +1,8 @@
+/// <reference types="cypress"/>
 describe('Testes de ponta a ponta site de fotos alura', () => {
 
   beforeEach(() => {
-    cy.visit('https://alura-fotos.herokuapp.com/#/home')
+    cy.visit('/')
   });
   
   it('Deve retornar mensa gens de validação', () => {
@@ -11,7 +12,7 @@ describe('Testes de ponta a ponta site de fotos alura', () => {
     cy.contains('button','Register').click();
     cy.contains('ap-vmessage','Full name is required!').should('be.visible');
     cy.contains('ap-vmessage','User name is required!').should('be.visible');
-    //cy.contains('ap-vmessage','Password is required!').should('be.visible');
+    cy.contains('ap-vmessage','Password is required!').should('be.visible');
     
   });
 
@@ -33,8 +34,7 @@ describe('Testes de ponta a ponta site de fotos alura', () => {
   });
 
   it('Deve realizar login com usuario valido', () => {
-    cy.get('input[formcontrolname="userName"]').type('wesley');
-    cy.get('input[formcontrolname="password"]').type('ifro123456');
+    cy.login(Cypress.env('userEmail'), Cypress.env('password'), {log: false });
     cy.contains('button','login').click();
     cy.contains('a','(Logout)').should('be.visible');
  });  
