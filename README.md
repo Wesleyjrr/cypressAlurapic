@@ -1,5 +1,5 @@
 ## Projeto de Teste para a plataforma AluraPic
-## ----------> Destinado a aplicação da disciplina de Teste de Software II
+### Destinado a aplicação da disciplina de Teste de Software II
 
 ## Iniciando um projeto node
 ```
